@@ -15,6 +15,7 @@ import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.RampUp;
 import frc.robot.subsystems.Drivetrain;
 import frc.robot.subsystems.Shooter;
+import frc.robot.utl.Limelight;
 
 /**
  * This class is where the bulk of the robot should be declared.  Since Command-based is a
@@ -49,6 +50,10 @@ public class RobotContainer {
   public double getTurn(){
     double value = controller.getRawAxis(0);
     return Math.signum(value)*Math.pow(value,2);
+  }
+
+  public double getCVTurn(){
+    return Math.signum(Limelight.getTargetXAngle())*Math.sqrt(Math.abs(Limelight.getTargetXAngle()));
   }
 
   public Command getAutonomousCommand() {
