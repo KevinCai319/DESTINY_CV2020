@@ -329,6 +329,19 @@ public class Limelight {
         return table.getEntry("cy" + crosshair).getDouble(0);
     }
 
+    public static double[] getXCor(){
+        return table.getEntry("tcornx").getDoubleArray(new double[0]);
+    }
+    public static double[] getYCor(){
+        return table.getEntry("tcorny").getDoubleArray(new double[0]);
+    }
+    public static double[][] getVertices(){
+        double [][] data = new double[2][];
+        data[0] = getXCor();
+        data[1] = getYCor();
+        return data;
+    }
+
     /* Custom Grip Values */
     // Return data given by custom GRIP pipeline
     /**
