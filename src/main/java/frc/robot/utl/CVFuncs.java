@@ -15,7 +15,14 @@ import org.opencv.core.*;
  * Add your docs here.
  */
 public class CVFuncs {
+	private static double[][] data;
+	
+	public void cvtLimelightToCV(){
+		data = Limelight.getVertices();
+	}
+	
 	public static boolean estimatePose() {
+		data[0][0] = 6;
 		List<Point3> objectPointsList = new ArrayList<Point3>();
 		objectPointsList.add(new Point3(-19.625, 0, 0));
 		objectPointsList.add(new Point3(19.625, 0, 0));
@@ -26,10 +33,10 @@ public class CVFuncs {
 		objectPointsMat.fromList(objectPointsList);		
 		
 		List<Point> imagePointsList = new ArrayList<Point>();
-		imagePointsList.add(new Point(-19.625, 0));
-		imagePointsList.add(new Point(19.625, 0));
-		imagePointsList.add(new Point(9.82, 17));
-		imagePointsList.add(new Point(-9.82, 17));
+		imagePointsList.add(new Point(data[0][0], data[1][0]));
+		imagePointsList.add(new Point(data[0][1], data[1][1]));
+		imagePointsList.add(new Point(data[0][2], data[1][2]));
+		imagePointsList.add(new Point(data[0][3], data[1][3]));
 		
 		MatOfPoint2f imagePointsMat = new MatOfPoint2f();
 		imagePointsMat.fromList(imagePointsList);
