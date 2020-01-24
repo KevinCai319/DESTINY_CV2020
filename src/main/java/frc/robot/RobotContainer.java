@@ -43,12 +43,12 @@ public class RobotContainer {
   }
   
   public double getForward(){
-    double value = controller.getRawAxis(3);
+    double value = controller.getRawAxis(1);
     return -Math.signum(value)*Math.pow(value,2);
   }
 
   public double getTurn(){
-    double value = controller.getRawAxis(0);
+    double value = controller.getRawAxis(4);
     return Math.signum(value)*Math.pow(value,2);
   }
 
