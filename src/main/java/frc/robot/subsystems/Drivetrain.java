@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.RobotMap;
+import frc.robot.utl.CVFuncs;
 import frc.robot.utl.Limelight;
 
 public class Drivetrain extends SubsystemBase {
@@ -48,7 +49,13 @@ public class Drivetrain extends SubsystemBase {
     differentialDrive.arcadeDrive(fwd, rot);
   }
   public void cvtLimelightToCV(){
+    // CVFuncs.getXYZ();
     double[][] data = Limelight.getVertices();
+    if(data.length > 3){
+      for(int i = 0; i < 4; i++){
+        System.out.println(data[0][i]+","+data[1][i]);
+      }
+    }
   }
   public void cvDrive(double fwd, double rot) {
     double out = Limelight.getTargetXAngle();

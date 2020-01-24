@@ -337,8 +337,13 @@ public class Limelight {
     }
     public static double[][] getVertices(){
         double [][] data = new double[2][];
-        data[0] = getXCor();
-        data[1] = getYCor();
+        if(hasAnyTarget()){
+            data[0] = getXCor();
+            data[1] = getYCor();
+        } else{
+            data[0] = new double[] {0.0,0.0,0.0,0.0};
+            data[1] = new double[] {0.0,0.0,0.0,0.0};
+        }
         return data;
     }
 

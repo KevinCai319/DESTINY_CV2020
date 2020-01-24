@@ -28,7 +28,8 @@ public class DriveCommand extends CommandBase {
   public void execute() {
     Robot.m_robotContainer.m_drivetrain.arcadeDrive(
       Robot.m_robotContainer.getForward(),
-      Robot.m_robotContainer.getCVTurn()
+      Robot.m_robotContainer.getTurn()
     );
+    Robot.m_robotContainer.m_drivetrain.cvtLimelightToCV();
   }
 }
