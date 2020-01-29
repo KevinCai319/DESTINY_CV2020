@@ -27,7 +27,7 @@ public class CVFuncs {
         		
         List<Point> imagePointsList = new ArrayList<Point>();
         double[][] data = Limelight.getVertices();
-        if(data[0][0] == 0){
+        if(data[0][0] == 0){    
             return null;
         }
         for(int i = 0; i < 4; i++){
@@ -64,7 +64,10 @@ public class CVFuncs {
 //        Calib3d.solvePnP(objPointsMat, this, camMatrix, distCoeffs, Rvec, Tvec);
 //    }
     
-    // public static void main(String[] args) { // Test client
-    // 	estimatePose();
-    // }
+    public static void main(String[] args) { // Test client
+        // System.setProperty("java.library.path", "C:\\Users\\Eric Wang\\Documents");
+        // System.out.println(System.getProperty("java.library.path"));
+        System.loadLibrary("opencv_java347");  
+        getXYZ();
+    }
 }
