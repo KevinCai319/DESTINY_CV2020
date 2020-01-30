@@ -15,6 +15,25 @@ import org.opencv.core.*;
  * Add your docs here.
  */
 public class CVFuncs {
+    public static double txOffset(){
+        double[][] data = Limelight.getVertices();
+        if(data.length > 0 && data[0].length > 3){
+            double s1x = data[0][1] - data[0][0];
+            double slx = data[0][3] - data[0][0];
+            double srx = data[0][1] - data[0][2];
+            System.out.println(s1x+"|"+slx+"|"+srx+"|"+(slx-srx));
+        }
+        return 0;
+    }
+    public static double getDistanceToTarget(){
+        if(!Limelight.hasAnyTarget())return 0;
+        double kLimelightPitch = 28; // deg
+        double kLimelightAngle = 0; // deg
+        double goal_angle = Limelight.getTargetXAngle() + kLimelightAngle;
+        double goal_pitch = Limelight.getTargetYAngle() + kLimelightPitch;
+        double goal_height = 92 - 31;
+        return goal_height / Math.tan(Math.toRadians(goal_pitch)) - 120;
+    }
 	public static Mat[] estimatePose() {
 		List<Point3> objectPointsList = new ArrayList<Point3>();
 		objectPointsList.add(new Point3(-19.625, 0, 0));

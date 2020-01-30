@@ -10,6 +10,7 @@ package frc.robot;
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 import frc.robot.commands.RampUp;
@@ -42,6 +43,11 @@ public class RobotContainer {
     configureButtonBindings();
   }
   
+  public void setupShuffleboard(){
+    SmartDashboard.putNumber("Angle_P", 0.2);
+    SmartDashboard.putNumber("Angle_I", 0);
+    SmartDashboard.putNumber("Angle_D", 0.1);
+  }
   public double getForward(){
     double value = controller.getRawAxis(1);
     return -Math.signum(value)*Math.pow(value,2);
@@ -66,7 +72,7 @@ public class RobotContainer {
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
   public void configureButtonBindings() {
-    new JoystickButton(Operator, 5).whileHeld(new RampUp(shooter));
+    new JoystickButton(Operator, 2).whileHeld(new RampUp(shooter));
   }
 
 }
