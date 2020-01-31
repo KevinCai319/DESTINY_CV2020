@@ -16,6 +16,7 @@ import org.opencv.core.*;
  */
 public class CVFuncs {
 	public static Mat[] estimatePose() {
+        System.loadLibrary("opencv_java347");
 		List<Point3> objectPointsList = new ArrayList<Point3>();
 		objectPointsList.add(new Point3(-19.625, 0, 0));
 		objectPointsList.add(new Point3(19.625, 0, 0));
@@ -65,7 +66,7 @@ public class CVFuncs {
 //    }
     
     public static void main(String[] args) { // Test client
-        // System.setProperty("java.library.path", "C:\\Users\\Eric Wang\\Documents");
+        // System.setProperty("java.library.path", "C:\\Users\\Eric Wang\\Documents\\GitHub\\DESTINY_CV2020\\libs");
         // System.out.println(System.getProperty("java.library.path"));
         System.loadLibrary("opencv_java347");  
         getXYZ();
